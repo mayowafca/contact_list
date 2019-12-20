@@ -1,0 +1,13 @@
+#content{
+    margin-top:20px;
+}
+#content span {
+    color:grey;
+}
+.error{
+    background-color: pink;
+    padding:3px;
+    text-align:center;
+    justify-content: center;
+    align-content:center;
+}
