@@ -7,9 +7,9 @@ const formValue = document.querySelector("#formsValue")
 const msgDiv = document.querySelector("#msgdiv")
 
 
-  const PromptName = prompt("enter your name"); 
+   const PromptName = prompt("enter your name"); 
    const promptValue = document.querySelector("h3");
-  promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
+   promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
 
 
 
@@ -18,6 +18,7 @@ const msgDiv = document.querySelector("#msgdiv")
 
      if (nameValue.value === ""  && numberValue.value ==="" && addressValue.value === "") {
       msgDiv.innerHTML = "<p>Please Fill In the Form Below</p>"
+      
       msgDiv.classList.add("error");
       setTimeout(() => msgDiv.remove() , 5000)
      }
@@ -82,6 +83,20 @@ const msgDiv = document.querySelector("#msgdiv")
      document.querySelector("table").appendChild(document.querySelector("tbody"));
      document.querySelector("tbody").appendChild(tr)
      tr.appendChild(td2)
+      //adding the delete button
+     let deleteButton = document.createElement("button");
+     deleteButton.textContent = "Delete";
+     deleteButton.classList.add("btn");
+     deleteButton.classList.add("btn-danger");
+     tr.appendChild(deleteButton)
+
+    }
+ })
+// rmoving contact 
+ container.addEventListener("click" , (e) => {
+    e.preventDefault();
+    if(e.target.classList.contains("btn-danger")){
+      e.target.parentElement.remove();
     }
  })
 
@@ -103,8 +118,3 @@ const msgDiv = document.querySelector("#msgdiv")
 //     newdiv.appendChild(newinput);
 // })
 
-button.addEventListener("click" , (e) => {
-   e.preventDefault()
-  
-
-});
