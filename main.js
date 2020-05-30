@@ -9,23 +9,9 @@ const filterItem = document.getElementById("filteritems");
 const tableRow = document.querySelector(".tablerow");
 const input = document.querySelectorAll("input");
 
-   // const PromptName = prompt("enter your name"); 
-   // const promptValue = document.querySelector("h3");
-   // promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
-
-   // filterItem.addEventListener("keyup", (e) => {
-   //    let text = e.target.value.toLowerCase();
-   //    let contactNames =  tableRow.getElementsByClassName("newName");
-   //    Array.from(contactNames).forEach(names => {
-   //       var itemName = names.firstChild.textContent;
-   //       //console.log(itemName);
-   //       if(itemName.toLowerCase().indexOf(text) != -1){
-   //          names.style.display = "block";
-   //       }else{
-   //          names.style.display = "none";
-   //       }
-   //    })
-   // });
+const PromptName = prompt("enter your name"); 
+const promptValue = document.querySelector("h3");
+promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
 
  button.addEventListener("click" , (e) => {
      e.preventDefault()
@@ -44,6 +30,18 @@ const input = document.querySelectorAll("input");
          setTimeout(() => input[0].classList.remove("border-danger"), 3000)
          setTimeout(() => input[1].classList.remove("border-danger"), 3000)
          setTimeout(() => input[2].classList.remove("border-danger"), 3000)
+     }
+
+     else if(numberValue.value.length <= 10){
+      let innerMsg = document.createElement("div");
+      innerMsg.textContent = "The Number entered is not valid";
+      innerMsg.classList.add("alert-danger", "text-center")
+      msgDiv.appendChild(innerMsg);
+      setTimeout(() => innerMsg.remove() , 3000)
+
+      input[1].classList.add("border-danger")
+      setTimeout(() => input[1].classList.remove("border-danger"), 3000)
+
      }
      
     else{
@@ -66,6 +64,20 @@ const input = document.querySelectorAll("input");
       let td2 = document.createElement("td")
       td2.appendChild(document.createTextNode(addressValue.value));
       tr.appendChild(td2);
+
+         let innerMsg = document.createElement("div");
+         innerMsg.textContent = "Contact Saved Successfully";
+         innerMsg.classList.add("alert-success", "text-center")
+         msgDiv.appendChild(innerMsg);
+         setTimeout(() => innerMsg.remove() , 3000)
+
+         input[0].classList.add("border-success")
+         input[1].classList.add("border-success")
+         input[2].classList.add("border-success") 
+
+         setTimeout(() => input[0].classList.remove("border-success"), 3000)
+         setTimeout(() => input[1].classList.remove("border-success"), 3000)
+         setTimeout(() => input[2].classList.remove("border-success"), 3000)
 
       //adding the delete button
      let deleteButton = document.createElement("button");
@@ -90,21 +102,4 @@ const input = document.querySelectorAll("input");
 
 
 
-// console.log(document.querySelector("table").children[1]);
-
-// button.addEventListener("click" , (e) => {
-//     e.preventDefault();
-    
-//     let newdiv = document.createElement("div");
-//     newdiv.classList.add("form-group");
-
-//     let newinput = document.createElement("input");
-//     newinput.placeholder = "Enter Age";
-//     newinput.classList.add("form-control");
-//     newinput.type = "number";
-
-//     container.appendChild(formsvalue);
-//     formsvalue.appendChild(newdiv);
-//     newdiv.appendChild(newinput);
-// })
 
