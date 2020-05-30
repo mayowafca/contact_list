@@ -5,7 +5,6 @@ const addressValue = document.querySelector("#address");
 const button = document.querySelector("#button");
 const formValue = document.querySelector("#formsValue")
 const msgDiv = document.querySelector("#msgdiv");
-const newName = document.querySelector("newName");
 const filterItem = document.getElementById("filteritems");
 const tableRow = document.querySelector(".tablerow");
 const input = document.querySelectorAll("input");
@@ -46,73 +45,32 @@ const input = document.querySelectorAll("input");
          setTimeout(() => input[1].classList.remove("border-danger"), 3000)
          setTimeout(() => input[2].classList.remove("border-danger"), 3000)
      }
-      else if(nameValue.value === ""){
-         msgDiv.textContent = "please enter  a name"
-         nameValue.style.borderColor = "red"
-         msgDiv.classList.add("error");
-         setTimeout(() => msgDiv.remove() , 5000)
-         nameValue.addEventListener("click" , () => {
-            nameValue.style.borderColor = ""
-         })
-      }
-    else if(numberValue.value === ""){
-      msgDiv.textContent = "please enter  a phone number"
-      numberValue.style.borderColor = "red"
-      msgDiv.classList.add("error");
-      setTimeout(() => msgDiv.remove() , 5000)
-      numberValue.addEventListener("click" , () => {
-         numberValue.style.borderColor = ""
-      })
-    }
-    else if(addressValue.value === ""){
-      msgDiv.textContent = "please enter  an address"
-      addressValue.style.borderColor = "red"
-      msgDiv.classList.add("error");
-      setTimeout(() => msgDiv.remove() , 5000)
-      addressValue.addEventListener("click" , () => {
-         addressValue.style.borderColor = ""
-      })
-    }
+     
     else{
         
-     document.querySelector("table").style.marginTop = "20px"
+      document.querySelector("table").style.marginTop = "20px";
 
-        let tr = document.createElement("tr");
-     
-     let td = document.createElement("td")
-     td.appendChild(document.createTextNode(nameValue.value));
-     td.classList.add("newName");
-
-     container.appendChild(document.querySelector("table"));
-     document.querySelector("table").appendChild(document.querySelector("tbody"));
-     document.querySelector("tbody").appendChild(tr)
-     tr.appendChild(td)
+      let tr = document.createElement("tr");
+      let td = document.createElement("td")
+      td.appendChild(document.createTextNode(nameValue.value));
+      document.querySelector("tbody").appendChild(tr)
+      tr.appendChild(td)
  
 
      
-     let td1 = document.createElement("td")
-     td1.appendChild(document.createTextNode(numberValue.value));
-
-     container.appendChild(document.querySelector("table"));
-     document.querySelector("table").appendChild(document.querySelector("tbody"));
-     document.querySelector("tbody").appendChild(tr)
-     tr.appendChild(td1);
-     td1.classList.add("newName");
+      let td1 = document.createElement("td")
+      td1.appendChild(document.createTextNode(numberValue.value));
+      tr.appendChild(td1);
 
      
-     let td2 = document.createElement("td")
-     td2.appendChild(document.createTextNode(addressValue.value));
+      let td2 = document.createElement("td")
+      td2.appendChild(document.createTextNode(addressValue.value));
+      tr.appendChild(td2);
 
-     container.appendChild(document.querySelector("table"));
-     document.querySelector("table").appendChild(document.querySelector("tbody"));
-     document.querySelector("tbody").appendChild(tr)
-     tr.appendChild(td2)
-     td2.classList.add("newName");
       //adding the delete button
      let deleteButton = document.createElement("button");
-     deleteButton.textContent = "Delete";
-     deleteButton.classList.add("btn");
-     deleteButton.classList.add("btn-danger");
+     deleteButton.textContent = "Delete Contact";
+     deleteButton.classList.add("btn", "btn-danger", "btn-block");
      tr.appendChild(deleteButton);
      deleteButton.classList.add("newName");
     }
