@@ -9,9 +9,9 @@ const filterItem = document.getElementById("filteritems");
 const tableRow = document.querySelector(".tablerow");
 const input = document.querySelectorAll("input");
 
-const PromptName = prompt("enter your name"); 
-const promptValue = document.querySelector("h3");
-promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
+// const PromptName = prompt("enter your name"); 
+// const promptValue = document.querySelector("h3");
+// promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
 
  button.addEventListener("click" , (e) => {
      e.preventDefault()
@@ -82,16 +82,15 @@ promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
       //adding the delete button
      let deleteButton = document.createElement("button");
      deleteButton.textContent = "Delete Contact";
-     deleteButton.classList.add("btn", "btn-danger", "btn-block");
+     deleteButton.classList.add("btn", "btn-danger" , "del");
      tr.appendChild(deleteButton);
-     deleteButton.classList.add("newName");
     }
   
  });
 // removing contact 
  container.addEventListener("click" , (e) => {
     e.preventDefault();
-    if(e.target.classList.contains("btn-danger")){
+    if(e.target.classList.contains("del")){
          if(confirm("Are you sure you want to delete this contact")){
          e.target.parentElement.remove();
        }else{
