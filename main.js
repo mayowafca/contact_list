@@ -87,18 +87,3 @@ const input = document.querySelectorAll("input");
     }
   
  });
-// removing contact 
- container.addEventListener("click" , (e) => {
-    e.preventDefault();
-    if(e.target.classList.contains("del")){
-         if(confirm("Are you sure you want to delete this contact")){
-         e.target.parentElement.remove();
-       }else{
-          alert("your contatct was not deleted");
-       }
-    }
- });
-
-
-
-
