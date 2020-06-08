@@ -82,8 +82,43 @@ const input = document.querySelectorAll("input");
       //adding the delete button
      let deleteButton = document.createElement("button");
      deleteButton.textContent = "Delete Contact";
-     deleteButton.classList.add("btn", "btn-danger" , "del");
+     deleteButton.style.marginTop= "5px";
+     deleteButton.classList.add("btn", "btn-danger");
      tr.appendChild(deleteButton);
     }
   
  });
+
+ // adding dark mode
+
+const darkButton = document.querySelector(".btn-dark");
+const exitButton = document.querySelector("#deactivate");
+const navbar = document.querySelector(".navbar-expand-lg");
+const formContent = document.querySelector("#content");
+darkButton.addEventListener("click", activateDarkMode);
+
+function activateDarkMode(){
+    navbar.classList.add("bg-dark", "bg-nav", "btn-dark")
+
+    formContent.classList.add("bg-dark", "bg-nav")
+    button.classList.add("bg-dark")
+    document.querySelector("thead").classList.add("bg-dark")
+    document.querySelector("thead").style.color =" white ";
+    document.querySelector("#table-content").classList.add("bg-dark")
+    document.querySelector("tbody").style.color = "white"
+
+    document.querySelector("body").style.backgroundColor =" #1f2429"
+   
+};
+exitButton.addEventListener("click", () => {
+    navbar.classList.remove("bg-dark", "bg-nav", "btn-dark")
+
+    formContent.classList.remove("bg-dark", "bg-nav")
+    button.classList.remove("bg-dark")
+    document.querySelector("thead").classList.remove("bg-dark")
+    document.querySelector("thead").style.color =" black ";
+    document.querySelector("#table-content").classList.remove("bg-dark")
+    document.querySelector("tbody").style.color = "black"
+
+    document.querySelector("body").style.backgroundColor ="white"
+})
