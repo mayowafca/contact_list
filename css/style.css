@@ -1,0 +1,16 @@
+#content{
+    margin-top:20px;
+}
+#content span {
+    color:grey;
+}
+.bg-nav{
+    color: #ffffff;
+}
+.bg-nav h1{
+    color: #ffffff;
+}
+.btn-dark{
+    border-style: none;
+    color: black;
+}
