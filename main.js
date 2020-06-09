@@ -8,6 +8,37 @@ const msgDiv = document.querySelector("#msgdiv");
 const filterItem = document.getElementById("filteritems");
 const tableRow = document.querySelector(".tablerow");
 const input = document.querySelectorAll("input");
+const navbar = document.querySelector(".navbar-expand-lg");
+const formContent = document.querySelector("#content");
+
+// adding dark mode
+const checkDarkMode = document.getElementById("check-dark-mode")
+checkDarkMode.addEventListener("change", activateDarkMode);
+function activateDarkMode(){
+    if (checkDarkMode.checked){
+        navbar.classList.add("bg-dark", "bg-nav", "btn-dark")
+
+        formContent.classList.add("bg-dark", "bg-nav")
+        button.classList.add("bg-dark")
+        document.querySelector("thead").classList.add("bg-dark")
+        document.querySelector("thead").style.color =" white ";
+        document.querySelector("#table-content").classList.add("bg-dark")
+        document.querySelector("tbody").style.color = "white"
+    
+        document.querySelector("body").style.backgroundColor =" #1f2429"
+    }else{
+        navbar.classList.remove("bg-dark", "bg-nav", "btn-dark")
+
+        formContent.classList.remove("bg-dark", "bg-nav")
+        button.classList.remove("bg-dark")
+        document.querySelector("thead").classList.remove("bg-dark")
+        document.querySelector("thead").style.color =" black ";
+        document.querySelector("#table-content").classList.remove("bg-dark")
+        document.querySelector("tbody").style.color = "black"
+    
+        document.querySelector("body").style.backgroundColor ="white"
+    }
+}
 
 // const PromptName = prompt("enter your name"); 
 // const promptValue = document.querySelector("h3");
@@ -91,34 +122,5 @@ const input = document.querySelectorAll("input");
 
  // adding dark mode
 
-const darkButton = document.querySelector(".btn-dark");
-const exitButton = document.querySelector("#deactivate");
-const navbar = document.querySelector(".navbar-expand-lg");
-const formContent = document.querySelector("#content");
-darkButton.addEventListener("click", activateDarkMode);
 
-function activateDarkMode(){
-    navbar.classList.add("bg-dark", "bg-nav", "btn-dark")
 
-    formContent.classList.add("bg-dark", "bg-nav")
-    button.classList.add("bg-dark")
-    document.querySelector("thead").classList.add("bg-dark")
-    document.querySelector("thead").style.color =" white ";
-    document.querySelector("#table-content").classList.add("bg-dark")
-    document.querySelector("tbody").style.color = "white"
-
-    document.querySelector("body").style.backgroundColor =" #1f2429"
-   
-};
-exitButton.addEventListener("click", () => {
-    navbar.classList.remove("bg-dark", "bg-nav", "btn-dark")
-
-    formContent.classList.remove("bg-dark", "bg-nav")
-    button.classList.remove("bg-dark")
-    document.querySelector("thead").classList.remove("bg-dark")
-    document.querySelector("thead").style.color =" black ";
-    document.querySelector("#table-content").classList.remove("bg-dark")
-    document.querySelector("tbody").style.color = "black"
-
-    document.querySelector("body").style.backgroundColor ="white"
-})
