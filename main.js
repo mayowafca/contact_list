@@ -10,6 +10,8 @@ const tableRow = document.querySelector(".tablerow");
 const input = document.querySelectorAll("input");
 const navbar = document.querySelector(".navbar-expand-lg");
 const formContent = document.querySelector("#content");
+const footerContainer = document.querySelector("#footer-container");
+const footerCopy = document.querySelector("#footer-copyright")
 
 // adding dark mode
 const checkDarkMode = document.getElementById("check-dark-mode")
@@ -26,6 +28,9 @@ function activateDarkMode(){
         document.querySelector("tbody").style.color = "white"
     
         document.querySelector("body").style.backgroundColor =" #1f2429"
+        footerContainer.classList.add("bg-dark");
+        footerContainer.style.color = "white";
+        footerCopy.style.color = "white";
     }else{
         navbar.classList.remove("bg-dark", "bg-nav", "btn-dark")
 
@@ -37,6 +42,9 @@ function activateDarkMode(){
         document.querySelector("tbody").style.color = "black"
     
         document.querySelector("body").style.backgroundColor ="white"
+        footerContainer.classList.remove("bg-dark");
+        footerContainer.style.color = "black";
+        footerCopy.style.color = "black";
     }
 }
 
