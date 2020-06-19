@@ -78,11 +78,19 @@ function activateDarkMode(){
       msgDiv.appendChild(innerMsg);
       setTimeout(() => innerMsg.remove() , 3000)
 
-      input[1].classList.add("border-danger")
+      input[2].classList.add("border-danger")
       setTimeout(() => input[1].classList.remove("border-danger"), 3000)
-
      }
-     
+    else if(numberValue.value >= 15){
+        let innerMsg = document.createElement("div");
+        innerMsg.textContent = "The Number entered is not valid";
+        innerMsg.classList.add("alert-danger", "text-center")
+        msgDiv.appendChild(innerMsg);
+        setTimeout(() => innerMsg.remove() , 3000)
+  
+        input[2].classList.add("border-danger")
+        setTimeout(() => input[1].classList.remove("border-danger"), 3000)
+    }
     else{
         
       document.querySelector("table").style.marginTop = "20px";
