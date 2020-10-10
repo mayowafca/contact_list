@@ -45,9 +45,10 @@ function activateDarkMode(){
         footerContainer.classList.remove("bg-dark");
         footerContainer.style.color = "black";
         footerCopy.style.color = "black";
+
     }
 }
-
+localStorage.setItem("darkmode", activateDarkMode)
 // const PromptName = prompt("enter your name"); 
 // const promptValue = document.querySelector("h3");
 // promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
@@ -79,17 +80,17 @@ function activateDarkMode(){
       setTimeout(() => innerMsg.remove() , 3000)
 
       input[2].classList.add("border-danger")
-      setTimeout(() => input[1].classList.remove("border-danger"), 3000)
+      setTimeout(() => input[2].classList.remove("border-danger"), 3000)
      }
-    else if(numberValue.value >= 15){
+   else if(numberValue.value.length >= 15){
         let innerMsg = document.createElement("div");
         innerMsg.textContent = "The Number entered is not valid";
-        innerMsg.classList.add("alert-danger", "text-center")
+        innerMsg.classList.add("alert-danger", "text-center");
         msgDiv.appendChild(innerMsg);
-        setTimeout(() => innerMsg.remove() , 3000)
+        setTimeout(() => innerMsg.remove() , 3000);
   
-        input[2].classList.add("border-danger")
-        setTimeout(() => input[1].classList.remove("border-danger"), 3000)
+        input[2].classList.add("border-danger");
+        setTimeout(() => input[2].classList.remove("border-danger"), 3000);
     }
     else{
         
@@ -135,8 +136,12 @@ function activateDarkMode(){
     }
   
  });
+ // delete button functionality
 
- // adding dark mode
-
-
-
+ tableRow.addEventListener("click" ,(e) => {
+     e.preventDefault();
+     if(e.target.classList.contain = "btn-danger", "btn"){
+         e.target.parentElement.remove();
+     }
+     else{console.log("wahala");}
+ })
