@@ -13,6 +13,14 @@ const formContent = document.querySelector("#content");
 const footerContainer = document.querySelector("#footer-container");
 const footerCopy = document.querySelector("#footer-copyright")
 
+document.addEventListener('DOMContentLoaded', () => {
+    const PromptName = prompt("enter your name"); 
+    const promptValue = document.querySelector("h5");
+    promptValue.textContent = `welcome ${PromptName}, start saving your contacts`;
+
+    setTimeout(() => {promptValue.remove()}, 5000)
+}, {once: true})
+
 // adding dark mode
 const checkDarkMode = document.getElementById("check-dark-mode")
 checkDarkMode.addEventListener("change", activateDarkMode);
@@ -59,7 +67,7 @@ localStorage.setItem("darkmode", activateDarkMode)
      if (nameValue.value === "" || numberValue.value ==="" || addressValue.value === "") {
          let innerMsg = document.createElement("div");
          innerMsg.textContent = "All Fields Are Required";
-         innerMsg.classList.add("alert-danger", "text-center")
+         innerMsg.classList.add("alert-danger", "text-center", "p-2")
          msgDiv.appendChild(innerMsg);
          setTimeout(() => innerMsg.remove() , 3000)
 
@@ -75,7 +83,7 @@ localStorage.setItem("darkmode", activateDarkMode)
      else if(numberValue.value.length <= 10){
       let innerMsg = document.createElement("div");
       innerMsg.textContent = "The Number entered is not valid";
-      innerMsg.classList.add("alert-danger", "text-center")
+      innerMsg.classList.add("alert-danger", "text-center", "p-2")
       msgDiv.appendChild(innerMsg);
       setTimeout(() => innerMsg.remove() , 3000)
 
@@ -85,7 +93,7 @@ localStorage.setItem("darkmode", activateDarkMode)
    else if(numberValue.value.length >= 15){
         let innerMsg = document.createElement("div");
         innerMsg.textContent = "The Number entered is not valid";
-        innerMsg.classList.add("alert-danger", "text-center");
+        innerMsg.classList.add("alert-danger", "text-center", "p-2");
         msgDiv.appendChild(innerMsg);
         setTimeout(() => innerMsg.remove() , 3000);
   
@@ -115,7 +123,7 @@ localStorage.setItem("darkmode", activateDarkMode)
 
          let innerMsg = document.createElement("div");
          innerMsg.textContent = "Contact Saved Successfully";
-         innerMsg.classList.add("alert-success", "text-center")
+         innerMsg.classList.add("alert-success", "text-center", "p-2")
          msgDiv.appendChild(innerMsg);
          setTimeout(() => innerMsg.remove() , 3000)
 
@@ -141,7 +149,20 @@ localStorage.setItem("darkmode", activateDarkMode)
  tableRow.addEventListener("click" ,(e) => {
      e.preventDefault();
      if(e.target.classList.contain = "btn-danger", "btn"){
-         e.target.parentElement.remove();
+         if (confirm("are you sure you want to delete this contact")) {
+            e.target.parentElement.remove();
+            let innerMsg = document.createElement("div");
+            innerMsg.textContent = "Contact removed successfully";
+            innerMsg.classList.add("alert-success", "text-center", "p-2")
+            msgDiv.appendChild(innerMsg);
+            setTimeout(() => innerMsg.remove() , 3000);
+         }else{
+            let innerMsg = document.createElement("div");
+            innerMsg.textContent = "Contact not removed ";
+            innerMsg.classList.add("alert-success", "text-center", "p-2")
+            msgDiv.appendChild(innerMsg);
+            setTimeout(() => innerMsg.remove() , 3000);
+         }
      }
      else{console.log("wahala");}
  })
