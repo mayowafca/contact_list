@@ -141,6 +141,8 @@ localStorage.setItem("darkmode", activateDarkMode)
      deleteButton.style.marginTop= "5px";
      deleteButton.classList.add("btn", "btn-danger");
      tr.appendChild(deleteButton);
+
+     refreshInput()
     }
   
  });
@@ -166,3 +168,9 @@ localStorage.setItem("darkmode", activateDarkMode)
      }
      else{console.log("wahala");}
  })
+
+ function refreshInput(){
+    document.querySelector("#name-input").value = '';
+    document.querySelector("#number-input").value = '';
+    document.querySelector("#address").value = '';
+ }
